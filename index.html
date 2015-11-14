@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+  <meta charset="utf-8" />
+  <meta http-equiv=»Content-Type» content=»text/html; charset=utf-8″>
+  <title>TimeToC++</title>
+  <link rel="shortcut icon" href="img/icon.PNG" type="image/PNG">
+  <link rel="stylesheet" type="text/css" href="style/css_general.css"/>
+  <link rel="stylesheet" type="text/css" href="style/css_index.css"/>
+  <link rel="stylesheet" type="text/css" href="style/css_submit.css"/>
+  <script src="lib/fabric.min.js"></script>
+  <script src="lib/jquery-1.11.3.min.js"></script>
+  <script src="js/index_hide_and_globalvar.js"></script>
+  <script src="js/index_fon.js"></script>
+  <script src="js/index_fon_submit.js"></script>
+  <script src="js/index_active_butt.js"></script>
+  <script src="js/index_regisration.js"></script>
+  <script src="js/create_person_room.js"></script>
+  <script src="js/create_story_room.js"></script>
+ </head>
+ 
+ <body onload="draw_fon(0); load_location();">
+
+ <div id="load_gif"><p><img src="img/loader.gif"></p></div>
+
+	<form id="log_form" class="login" action="">
+		<p><input type="text" name="login" id="login" placeholder="E - mail"></p>
+		<p><input type="password" name="password" id="password" placeholder="Пароль"></p>
+		<p class="login-submit"><button type="button" class="login-button" id="butt" onclick="/*logg();*/ document.getElementById('btn_circle').remove(); hide(); draw_fon(1,1);">Войти</button></p>
+		<p class="forgot-password"><a href="">Забыл пароль?</a></p>
+	</form>
+	<p class="login-submit"><button type="button" class="login-button" id="butt2" onclick="hide(); draw_fon(1,2); document.getElementById('btn_circle').style.visibility = 'hidden';">Новый ученик</button></p>
+	<canvas id="story-room" class="story-room" z-index = -4></canvas>
+	<canvas id="fon" class="fon"></canvas>
+
+ <div id='iv'></div>
+ <div id='page'></div>
+
+ </body>
+</html>
