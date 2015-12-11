@@ -866,17 +866,27 @@ function create_room(canvas_name,after_rigist){
     	img.set('top', h*0.075);
     	canvas_fon.add(img);
 
-    	var textarea_omega = document.createElement("textarea");
-    	textarea_omega.id = 'textarea_omega';
-    	textarea_omega.style.width = w*0.668 + 'px';
-		textarea_omega.style.height = h*0.523 + 'px';
-		textarea_omega.style.top =  h*0.2 + 'px';
-		textarea_omega.style.left = w*0.126 + 'px';
+		document.getElementById('page').style.top = h*0.2 + 'px';
+		document.getElementById('page').style.left = w*0.126 + 'px';
+		document.getElementById('page').style.width = w*0.668 + 'px';
+		document.getElementById('page').style.height = h*0.523 + 'px';
+		document.getElementById('page').innerHTML = '<textarea id="textarea_omega"></textarea>';
+
 		textarea_omega.autofocus = 'true';
 		textarea_omega.wrap="off";
 		textarea_omega.maxLength = 6000;
-		textarea_omega.value = '#include<iostrem>\n\nint main(){\n}'
-		document.body.appendChild(textarea_omega);
+		textarea_omega.value = '#include<iostrem>\n\nint main()\n{\n}'
+		textarea_omega.style.height = h*0.7 + 'px';
+		var editor = CodeMirror.fromTextArea(document.getElementById("textarea_omega"), {
+        lineNumbers: true, 
+        matchBrackets: true,
+        mode: "text/x-c++src",
+        indentUnit: 2, 
+        indentWithTabs: true,
+        enterMode: "keep",
+        tabMode: "shift",
+        scrollCursorIntoView: "false"
+      });
 
 		//h*0.211
 		var btn_omega_send = document.createElement('button');
@@ -900,6 +910,7 @@ function create_room(canvas_name,after_rigist){
 			document.getElementById('btn_omega_close').remove();
 			document.getElementById('btn_omega_send').remove();
 			document.getElementById('textarea_omega').remove();
+			document.getElementById('page').innerHTML = '';
 			canvas_fon.remove(rect_for_omega,img);
 			create_circle();
 			document.body.appendChild(btn_start_level);
