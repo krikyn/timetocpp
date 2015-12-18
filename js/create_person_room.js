@@ -674,6 +674,11 @@ function create_room(canvas_name,after_rigist){
 	if(header_cw == 'Профиль'){
 		c_profile();
 	}
+
+	if(header_cw == 'Теория'||header_cw == 'История'||header_cw == 'Новости галактики'){
+			document.getElementById('btn_start_level').remove();
+		}
+
 	var btn_close = document.createElement('button');
 	btn_close.id = 'btn_close';
 	document.body.appendChild(btn_close);
@@ -686,6 +691,7 @@ function create_room(canvas_name,after_rigist){
 
 		canvas_fon.remove(rectf,rectf2,rectf3,path_f,text_f);
 		rehide();
+		document.body.appendChild(btn_start_level);
 		document.getElementById('btn_start_level').disabled = false;
 		if(header_cw == 'Профиль'){
 			document.getElementById('btn_name1').remove();
@@ -700,6 +706,10 @@ function create_room(canvas_name,after_rigist){
 		}
 		if(header_cw == 'Достижения'){
 			document.getElementById('page').innerHTML = '';
+		}
+
+		if(header_cw == 'Теория'){
+			document.getElementById('teor').innerHTML = '';
 		}
 		create_circle();
 	}
@@ -747,7 +757,6 @@ function create_room(canvas_name,after_rigist){
     		create_circle();}});
     }
 	}
-	
 
 	
 	var btn_achive = document.createElement('button');
@@ -914,6 +923,7 @@ function create_room(canvas_name,after_rigist){
 			canvas_fon.remove(rect_for_omega,img);
 			create_circle();
 			document.body.appendChild(btn_start_level);
+			document.getElementById('btn_start_level').disabled = false;
 			rehide();
 		}
 
@@ -928,7 +938,14 @@ function create_room(canvas_name,after_rigist){
 	document.getElementById('btn_teor').style.height = h*0.15 + 'px';
 	document.getElementById('btn_teor').style.top =  h*0.21 + 'px';
 	document.getElementById('btn_teor').style.left = -1 + 'px';
-	document.getElementById('btn_teor').onclick = function(){create_window(w*0.3,0,w*0.7,h,'Теория',8);}
+	document.getElementById('btn_teor').onclick = function(){
+		create_window(w*0.3,0,w*0.7,h,'Теория',8);
+		$('#teor').css( "top", h*0.05 + 'px' );
+		$('#teor').css( "left", w*0.304 + 'px' );
+		$('#teor').css( "width", w*0.694 + 'px' );
+		$('#teor').css( "height", w*0.95 + 'px' );
+		document.getElementById('teor').innerHTML = '<ul><li><input type="checkbox" checked><i></i><h2 class="spisok">1. Архитектура приложения</h2><p class="spisok" >regrt</p></li><li><input type="checkbox" checked><i></i><h2 class="spisok">2. Синтаксис</h2><p class="spisok">This  wfwerferwf ere</p></li></ul>';
+	}
 
 	var btn_history = document.createElement('button');
 	btn_history.id = 'btn_history';
